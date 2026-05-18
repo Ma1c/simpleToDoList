@@ -1,0 +1,67 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:simpleToDoList.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Width="300" Height="500"
+        mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="500
+        "
+        x:Class="simpleToDoList.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="simpleToDoList">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+    <Grid RowDefinitions="Auto, *, Auto"
+          x:Name="Root">
+		<TextBlock Classes ="h1" Text="My ToDo-List"/>
+
+        <ScrollViewer Grid.Row="1">
+			<ItemsControl ItemsSource="{Binding ToDoItems}">
+                <ItemsControl.ItemTemplate>
+					<DataTemplate DataType="vm:ToDoItemViewModel">
+						<Grid ColumnDefinitions="*, auto">
+							<CheckBox Content="{Binding Content}"
+                                      IsChecked="{Binding IsChecked}"/>
+
+                            <Button Command="{Binding #Root.((vm:MainWindowViewModel)DataContext).RemoveItemCommand}"
+                                    CommandParameter="{Binding .}"
+                                    Grid.Column="1">
+                                <PathIcon Data="{DynamicResource delete_regular}" Foreground="Red" />
+                            </Button>
+
+                        </Grid>
+
+                    </DataTemplate>
+
+                </ItemsControl.ItemTemplate>
+
+            </ItemsControl>
+
+        </ScrollViewer>
+
+        <TextBox Grid.Row="2"
+                   Text="{Binding NewItemContent}"
+                   Watermark="Add a new Item">
+            <TextBox.InnerRightContent>
+				<Button Command="{Binding AddItemCommand}" >
+					<PathIcon Data="{DynamicResource add_regular}" Foreground="#3366ff" />
+                </Button>
+            </TextBox.InnerRightContent>
+
+            <TextBox.KeyBindings>
+                <KeyBinding Command="{Binding AddItemCommand}" Gesture="Enter"/>
+            </TextBox.KeyBindings>
+
+        </TextBox>
+
+
+
+    </Grid>
+    
+
+</Window>
