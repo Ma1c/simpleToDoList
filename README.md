@@ -1,10 +1,3 @@
-# simpleToDoList
-
-![GitHub repo size](https://img.shields.io/github/repo-size/yourusername/simpleToDoList)
-![GitHub](https://img.shields.io/github/license/yourusername/simpleToDoList)
-![GitHub issues](https://img.shields.io/github/issues/yourusername/simpleToDoList)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/yourusername/simpleToDoList)
-
 A simple, cross-platform To-Do List application built with .NET 8 and Avalonia UI featuring automatic JSON persistence to `%APPDATA%\ToDoList`.
 
 ## 📋 Features
@@ -12,21 +5,9 @@ A simple, cross-platform To-Do List application built with .NET 8 and Avalonia U
 - ✅ Add, edit, and delete tasks
 - ✅ Mark tasks as completed (with persistent state)
 - ✅ Automatic JSON saving to local AppData folder
-- ✅ Clean, modern UI with Avalonia framework
 - ✅ Cross-platform: Windows, macOS, Linux
 - ✅ MVVM architecture with CommunityToolkit.Mvvm
 - ✅ Responsive design
-
-## 🛠️ Technologies
-
-- **[.NET 8](https://dotnet.microsoft.com/download/dotnet/8.0)** - Latest LTS version
-- **[Avalonia UI](https://avaloniaui.net)** - Cross-platform XAML-based UI framework
-- **[CommunityToolkit.Mvvm](https://learn.microsoft.com/dotnet/communitytoolkit/mvvm/)** - MVVM pattern support
-- **[SkiaSharp](https://github.com/mono/SkiaSharp)** - 2D graphics rendering
-- **[HarfBuzzSharp](https://github.com/mono/HarfBuzzSharp)** - Text shaping engine
-- **[System.Text.Json](https://learn.microsoft.com/dotnet/standard/serialization/system-text-json/)** - JSON serialization
-
-## 🚀 Getting Started
 
 ### Prerequisites
 
@@ -103,17 +84,6 @@ simpleToDoList/
 └── .gitattributes
 ```
 
-## 🤝 Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-### How to Contribute
-
-1. **Fork the Project**
-2. **Create your Feature Branch** (`git checkout -b feature/AmazingFeature`)
-3. **Commit your Changes** (`git commit -m 'Add some AmazingFeature'`)
-4. **Push to the Branch** (`git push origin feature/AmazingFeature`)
-5. **Open a Pull Request**
 
 ### Development Setup
 
@@ -122,25 +92,11 @@ Contributions are what make the open source community such an amazing place to l
 3. Open in your preferred IDE (Visual Studio, Rider, or VS Code with C# extension)
 4. Build and run: `dotnet run --project simpleToDoList`
 
-### Code Style
-
-- Follow [.NET coding conventions](https://learn.microsoft.com/dotnet/standard/design-guidelines/)
-- Keep methods focused and readable
-- Add XML documentation for public APIs
-- Write meaningful commit messages
 
 ## 📸 Screenshots
 
-*(Add screenshots here showing the application in action)*
-
-![Main Window](screenshots/main-window.png)
-*Main window showing task list*
-
-![Adding Task](screenshots/add-task.png)
-*Adding a new task*
-
-![Completed Tasks](screenshots/completed-tasks.png)
-*Tasks with completion status*
+![Dark Theme](screenshots/dark.png)
+![Light Theme](screenshots/light.png)
 
 ## 📄 License
 
@@ -148,21 +104,5 @@ This project is licensed under the **MIT License** - see the [LICENSE.txt](LICEN
 
 **TL;DR**: You can do whatever you want with this code as long as you include the original copyright and license notice in any copy of the software/source.
 
-## 👏 Acknowledgments
 
-- [Avalonia UI Team](https://github.com/AvaloniaUI/Avalonia) for the excellent cross-platform framework
-- [.NET Community Toolkit](https://learn.microsoft.com/dotnet/communitytoolkit/) for MVVM helpers
-- [JetBrains](https://www.jetbrains.com/) for providing open source licenses for their IDEs
-- All contributors who have helped shape this project
-
-## 📞 Contact
-
-Your Name - [your email or profile link]
-
-Project Link: [https://github.com/yourusername/simpleToDoList](https://github.com/yourusername/simpleToDoList)
-
----
-
-⭐ **If you found this project helpful, please consider giving it a star on GitHub!** It helps others discover the project and motivates continued development.
-
-*Generated with ❤️ using .NET 8 and Avalonia UI*
+⭐ **If you found this project helpful, please consider giving it a star on GitHub!** 
