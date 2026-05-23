@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using simpleToDoList.Models;
-using System.Collections.Specialized;
 using CommunityToolkit.Mvvm.Input;
 using simpleToDoList.Services;
 
@@ -50,7 +50,39 @@ namespace simpleToDoList.ViewModels
 
         private void SubscribeToChanges()
         {
+            // Save when items are added/removed from the collection
             ToDoItems.CollectionChanged += (s, e) => _storageService.SaveToDoItems(ToDoItems);
+
+            // Save when individual item properties change
+            foreach (var item in ToDoItems)
+            {
+                item.PropertyChanged += Item_PropertyChanged;
+            }
+
+            // Handle future items added to the collection
+            ToDoItems.CollectionChanged += (s, e) =>
+            {
+                if (e.NewItems != null)
+                {
+                    foreach (ToDoItemViewModel item in e.NewItems)
+                    {
+                        item.PropertyChanged += Item_PropertyChanged;
+                    }
+                }
+
+                if (e.OldItems != null)
+                {
+                    foreach (ToDoItemViewModel item in e.OldItems)
+                    {
+                        item.PropertyChanged -= Item_PropertyChanged;
+                    }
+                }
+            };
+        }
+
+        private void Item_PropertyChanged(object? sender, PropertyChangedEventArgs e)
+        {
+            _storageService.SaveToDoItems(ToDoItems);
         }
     }
 }
