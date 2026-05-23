@@ -1,33 +1,34 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 using simpleToDoList.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace simpleToDoList.ViewModels
 {
-    public partial class ToDoItemViewModel : ViewModelBase
+    public class ToDoItemViewModel : ViewModelBase
     {
+        private bool _isChecked;
+        private string? _content;
+
         public ToDoItemViewModel()
         {
-            //empty
         }
 
-        
         public ToDoItemViewModel(ToDoItem item)
         {
             IsChecked = item.IsChecked;
             Content = item.Content;
         }
 
-        [ObservableProperty]
-        private bool _isChecked;
+        public bool IsChecked
+        {
+            get => _isChecked;
+            set => SetProperty(ref _isChecked, value);
+        }
 
-        [ObservableProperty]
-        private string? _content;
+        public string? Content
+        {
+            get => _content;
+            set => SetProperty(ref _content, value);
+        }
 
         public ToDoItem GetToDoItem()
         {
